@@ -18,6 +18,6 @@
     "name": "Temperature",
     "category": "AirCon",
     "commandType": "console",
-    "command": "python /home/tikenoue/projects/temperature/temprature.py"
+    "command": "python /home/tikenoue/projects/temperature/temperature.py"
   }
 }
