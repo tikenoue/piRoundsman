@@ -27,8 +27,8 @@ def read_command(key):
 def read_command_run(key):
     cmd = get_command(key)
     cmd_str = cmd['command']
-    return_code, stdout_data, stderr_data  = run_command(cmd_str)
-    response = jsonify({'results': {'returnCd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data}})
+    return_code, stdout_data, stderr_data = run_command(cmd_str)
+    response = jsonify({'results': dict(returnCd=return_code, command=cmd_str, stdout=stdout_data, stderr=stderr_data)})
     response.status_code = 200
     return response
 
