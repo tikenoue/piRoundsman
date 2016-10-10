@@ -1,0 +1,23 @@
+{
+  "air_on": {
+    "id": "001",
+    "name": "AirCon On",
+    "category": "AirCon",
+    "commandType": "console",
+    "command": "/home/tikenoue/projects/adir01p/adir01p -t air_on.ini"
+  },
+  "air_off": {
+    "id": "002",
+    "name": "AirCon Off",
+    "category": "AirCon",
+    "commandType": "console",
+    "command": "/home/tikenoue/projects/adir01p/adir01p -t air_off.ini"
+  },
+  "temperature": {
+    "id": "003",
+    "name": "Temperature",
+    "category": "AirCon",
+    "commandType": "console",
+    "command": "python /home/tikenoue/projects/temperature/temprature.py"
+  }
+}
