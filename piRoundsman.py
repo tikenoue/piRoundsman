@@ -28,21 +28,17 @@ def run_command(key):
     cmd = get_command(key)
     cmd_str = cmd['command']
     return_code, stdout_data, stderr_data = run_command(cmd_str)
-    print(return_code)
-    print(stdout_data)
-    print(stderr_data)
     retjs = json.dumps({'returncd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data})
-    #response = jsonify({'results': retjs})
-    #response.status_code = 200
-    return Response(retjs, 200)
+    response = jsonify({'results': retjs})
+    response.status_code = 200
+    return response
 
 
 # process実行
 def run_command(cmd_str):
     p = subprocess.Popen(cmd_str.split(' '), shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout_data, stderr_data = p.communicate()
-    print(p.returncode)
-    return p.returncode, stdout_data, stderr_data
+    return p.returncode, bytes(stdout_data), bytes(stderr_data)
 
 
 # モデル操作
