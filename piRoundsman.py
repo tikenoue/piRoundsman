@@ -28,10 +28,13 @@ def run_command(key):
     cmd = get_command(key)
     cmd_str = cmd['command']
     return_code, stdout_data, stderr_data = run_command(cmd_str)
+    print(return_code)
+    print(stdout_data)
+    print(stderr_data)
     retjs = json.dumps({'returncd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data})
-    response = jsonify({'results': retjs})
-    response.status_code = 200
-    return response
+    #response = jsonify({'results': retjs})
+    #response.status_code = 200
+    return Response(retjs, 200)
 
 
 # process実行
