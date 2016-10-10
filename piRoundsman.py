@@ -38,7 +38,7 @@ def run_command(key):
 def run_command(cmd_str):
     p = subprocess.Popen(cmd_str.split(' '), shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout_data, stderr_data = p.communicate()
-    return p.returncode, str(stdout_data), str(stderr_data)
+    return p.returncode, str(stdout_data, encoding='utf-8'), str(stderr_data, encoding='utf-8')
 
 
 # モデル操作
