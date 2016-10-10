@@ -4,14 +4,14 @@
     "name": "AirCon On",
     "category": "AirCon",
     "commandType": "console",
-    "command": "/home/tikenoue/projects/adir01p/adir01p -t air_on.ini"
+    "command": "/home/tikenoue/projects/adir01p/adir01p -t /home/tikenoue/projects/adir01p/air_on.ini"
   },
   "air_off": {
     "id": "002",
     "name": "AirCon Off",
     "category": "AirCon",
     "commandType": "console",
-    "command": "/home/tikenoue/projects/adir01p/adir01p -t air_off.ini"
+    "command": "/home/tikenoue/projects/adir01p/adir01p -t /home/tikenoue/projects/adir01p/air_off.ini"
   },
   "temperature": {
     "id": "003",
