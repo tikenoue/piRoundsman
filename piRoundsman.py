@@ -24,11 +24,11 @@ def read_command(key):
 
 
 @app.route('/api/commands/<key>/run', methods=['GET'])
-def read_command_run(key):
+def run_command(key):
     cmd = get_command(key)
     cmd_str = cmd['command']
     return_code, stdout_data, stderr_data = run_command(cmd_str)
-    retjs = [{'returnCd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data}]
+    retjs = [{'returncd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data}]
     response = jsonify({'results': retjs})
     response.status_code = 200
     return response
