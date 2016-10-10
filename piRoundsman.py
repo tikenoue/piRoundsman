@@ -28,8 +28,8 @@ def read_command_run(key):
     cmd = get_command(key)
     cmd_str = cmd['command']
     return_code, stdout_data, stderr_data = run_command(cmd_str)
-    retjs = {'returnCd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data}
-    response = jsonify({'results': json.dumps(retjs)})
+    retjs = [{'returnCd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data}]
+    response = jsonify({'results': retjs})
     response.status_code = 200
     return response
 
