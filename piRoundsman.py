@@ -35,8 +35,9 @@ def read_command_run(key):
 
 # process実行
 def run_command(cmd_str):
-    p = subprocess.Popen(cmd_str.split(' '), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(cmd_str.split(' '), shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout_data, stderr_data = p.communicate()
+    print(p.returncode)
     return p.returncode, stdout_data, stderr_data
 
 
