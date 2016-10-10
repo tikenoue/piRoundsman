@@ -29,7 +29,7 @@ def run_command(key):
     cmd_str = cmd['command']
     return_code, stdout_data, stderr_data = run_command(cmd_str)
     retjs = [{'returncd': return_code, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data}]
-    response = jsonify({'results': retjs})
+    response = {'results': retjs}
     response.status_code = 200
     return response
 
