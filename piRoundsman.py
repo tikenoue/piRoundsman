@@ -27,11 +27,17 @@ def read_command(key):
 def read_command_run(key):
     cmd = get_command(key)
     cmd_str = cmd['command']
-    ret = subprocess.check_call(cmd_str.split(' '))
-    print(ret)
-    response = jsonify({'results': 'command executed'})
+    result, stdout_data, stderr_data  = run_command(cmd_str)
+    response = jsonify({'results': result, 'command': cmd_str, 'stdout': stdout_data, 'stderr': stderr_data})
     response.status_code = 200
     return response
+
+
+# process実行
+def run_command(cmd_str):
+    p = subprocess.Popen(cmd_str.split(' '), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout_data, stderr_data = p.communicate()
+    return p.returncode, stdout_data, stderr_data
 
 
 # モデル操作
