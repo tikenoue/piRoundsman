@@ -1,0 +1,17 @@
+{%  extends "layout.html" %}
+{% block content %}
+    <div class="container" align="center">
+        <div align="center" style="margin-bottom: 2em">
+            <h1>piRoundman</h1>
+        </div>
+        {% for category in categories %}
+            <p>
+                <button type="button" class="btn btn-default btn-lg btn-block" onclick="location.href='/templates/menu_detail.html'">
+                    {{ category.name }}
+                </button>
+            </p>
+        {% else %}
+            No command
+        {% endfor %}
+    </div>
+{% endblock %}
