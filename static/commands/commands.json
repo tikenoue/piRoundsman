@@ -1,23 +1,44 @@
 {
+  "reboot": {
+    "id": "001",
+    "name": "Reboot",
+    "category": "System",
+    "commandType": "console",
+    "command": "reboot"
+  },
   "air_on": {
     "id": "001",
-    "name": "AirCon On",
+    "name": "AirCon On Cooling",
     "category": "AirCon",
     "commandType": "console",
     "command": "/home/tikenoue/projects/adir01p/adir01p -t /home/tikenoue/projects/adir01p/air_on.ini"
   },
-  "air_off": {
+  "air_on2": {
     "id": "002",
+    "name": "AirCon On Heating",
+    "category": "AirCon",
+    "commandType": "console",
+    "command": "/home/tikenoue/projects/adir01p/adir01p -t /home/tikenoue/projects/adir01p/air_on2.ini"
+  },
+  "air_off": {
+    "id": "003",
     "name": "AirCon Off",
     "category": "AirCon",
     "commandType": "console",
     "command": "/home/tikenoue/projects/adir01p/adir01p -t /home/tikenoue/projects/adir01p/air_off.ini"
   },
-  "temperature": {
-    "id": "003",
-    "name": "Temperature",
+  "record_temperature": {
+    "id": "004",
+    "name": "Record Temperature",
     "category": "AirCon",
     "commandType": "console",
-    "command": "python /home/tikenoue/projects/temperature/temperature.py"
+    "command": "/home/tikenoue/projects/temperature/runRecordTemperature.sh"
+  },
+  "temperature_log": {
+    "id": "005",
+    "name": "Temperature Log",
+    "category": "AirCon",
+    "commandType": "console",
+    "command": "cat /home/tikenoue/projects/temperature/data.tsv"
   }
 }

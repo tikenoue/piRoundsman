@@ -4,9 +4,18 @@
 import json
 import os
 import subprocess
+import operator
+import flask
 from flask import Flask, jsonify, request, url_for, abort, Response
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def show_commands():
+    commands = get_command()
+    categories = get_categories_with_commands(commands)
+    return flask.render_template('index.html', categories=categories)
 
 
 @app.route('/api/commands', methods=['GET'])
@@ -45,11 +54,28 @@ def run_command(cmd_str):
 def get_command(key=None):
     data = read_file()
     if key is None:
-        return data;
+        return data
     if key in data:
         return data[key]
     else:
         return {}
+
+
+def get_categories_with_commands(commands):
+    category_names = []
+    for command in commands.values():
+        if command['category'] not in category_names:
+            category_names.append(command['category'])
+
+    categories = []
+    for category_name in category_names:
+        commands_tmp = {}
+        for key, command in commands.items():
+            if command['category'] == category_name:
+                commands_tmp[key] = command
+        categories.append({'name': category_name, 'commands': commands_tmp})
+
+    return categories
 
 
 # JSONアクセス

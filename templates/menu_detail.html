@@ -1,0 +1,22 @@
+{%  extends "layout.html" %}
+{% block content %}
+    <div class="container" align="center">
+        <div align="center" style="margin-bottom: 2em">
+            <h1>piRoundman</h1>
+        </div>
+        {% for category in categories %}
+            <p>
+                <button type="button" class="btn btn-default btn-lg btn-block">
+                    {{ category.name }}
+                  <!--  {% for key, command in category.commands.items() %}
+                        <div class="command">
+                            {{ command.name }}
+                        </div>
+                    {% endfor %} -->
+                </button>
+            </p>
+        {% else %}
+            No command
+        {% endfor %}
+    </div>
+{% endblock %}
