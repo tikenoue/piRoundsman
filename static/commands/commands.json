@@ -32,7 +32,7 @@
     "name": "Record Temperature",
     "category": "AirCon",
     "commandType": "console",
-    "command": "/home/tikenoue/projects/temperature/runRecordTemperature.sh &"
+    "command": "/home/tikenoue/projects/temperature/runRecordTemperature.sh"
   },
   "temperature_log": {
     "id": "005",
